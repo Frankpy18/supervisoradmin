@@ -249,6 +249,238 @@ tr:hover td{background:rgba(10,99,46,0.04);}
   .stats-grid{grid-template-columns:1fr;}
   #dashScreen{padding:16px 14px 32px;}
 }
+
+/* Nav Tabs & Selector */
+.nav-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1.5px solid var(--border);
+  padding-bottom: 8px;
+}
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted2);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tab-btn:hover {
+  background: rgba(10,99,46,0.06);
+  color: var(--accent);
+}
+.tab-btn.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(10,99,46,0.18);
+}
+
+/* Matriz de Criticidad */
+.criticidad-selector-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.criticidad-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+}
+.criticidad-grid {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  background: var(--bg2);
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border2);
+}
+.grid-cell-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.grid-cell {
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  background: #dcdfd9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.15s ease;
+}
+.grid-cell:hover {
+  transform: scale(1.15);
+  z-index: 2;
+}
+.grid-cell.green {
+  background: var(--green);
+}
+.grid-cell.red {
+  background: var(--red);
+}
+.grid-cell.grey {
+  background: #c0c5b8;
+  color: var(--muted2);
+}
+.grid-cell-date {
+  font-size: 8px;
+  color: var(--muted2);
+  font-weight: 500;
+}
+.risk-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.risk-badge.max { background: var(--red2); color: var(--red); border: 1px solid rgba(161,77,52,0.25); }
+.risk-badge.alta { background: var(--yellow2); color: var(--yellow); border: 1px solid rgba(219,160,69,0.25); }
+.risk-badge.media { background: var(--blue2); color: var(--blue); border: 1px solid rgba(42,139,82,0.25); }
+.risk-badge.bajo { background: var(--green2); color: var(--green); border: 1px solid rgba(42,139,82,0.25); }
+
+/* Simulador Layout */
+.sim-kpis {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.sim-kpi-card {
+  flex: 1;
+  background: var(--bg2);
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border2);
+  text-align: center;
+}
+.sim-kpi-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted2);
+  margin-bottom: 4px;
+}
+.sim-kpi-val {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+}
+.sim-kpi-diff {
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.sim-kpi-diff.plus { color: var(--green); }
+.sim-kpi-diff.minus { color: var(--red); }
+.sim-kpi-diff.none { color: var(--muted); }
+.sim-agent-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease;
+}
+.sim-agent-item:hover {
+  background: rgba(10,99,46,0.03);
+}
+.sim-agent-item:last-child {
+  border-bottom: none;
+}
+.sim-checkbox {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* Coaching & Achievements */
+.action-card-item {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.action-card-item:last-child {
+  margin-bottom: 0;
+}
+.action-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.action-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+.action-focus {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.action-focus.escucha { background: var(--blue2); color: var(--blue); }
+.action-focus.cortes { background: var(--red2); color: var(--red); }
+.action-text {
+  font-size: 12px;
+  color: var(--muted2);
+  line-height: 1.4;
+}
+.ach-row {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.ach-row:last-child {
+  margin-bottom: 0;
+}
+.ach-badge {
+  font-size: 24px;
+}
+.ach-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ach-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+.ach-desc {
+  font-size: 11px;
+  color: var(--muted2);
+}
 </style>
 </head>
 <body>
@@ -294,6 +526,15 @@ tr:hover td{background:rgba(10,99,46,0.04);}
     </div>
     <button class="btn-salir" onclick="salir()">← Salir</button>
   </div>
+
+  <!-- Vista Selector Tabs -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" id="btnTabMain" onclick="switchView('main')">📊 Panel de Rendimiento</button>
+    <button class="tab-btn" id="btnTabAdvanced" onclick="switchView('advanced')">⚙️ Análisis Avanzado y Objetivos</button>
+  </div>
+
+  <!-- Vista 1: Panel Principal -->
+  <div id="viewMain">
 
   <!-- KPI Grid -->
   <div class="stats-grid">
@@ -439,6 +680,105 @@ tr:hover td{background:rgba(10,99,46,0.04);}
       </div>
     </div>
   </div>
+  </div><!-- Fin viewMain -->
+
+  <!-- Vista 2: Análisis Avanzado y Objetivos -->
+  <div id="viewAdvanced" style="display:none;">
+    <!-- Fila 1: Simulador y Matriz de Criticidad -->
+    <div class="bottom-grid" style="margin-top:0px; margin-bottom:20px;">
+      <!-- Card Simulador -->
+      <div class="ranking-card">
+        <div class="section-title"><span class="st-dot"></span>Simulador de Impacto Operativo</div>
+        <p style="font-size:12px; color:var(--muted2); margin-bottom:14px;">
+          Desmarca asesores de la lista para simular cómo mejoraría el TNPS del equipo excluyendo su desempeño.
+        </p>
+        
+        <div class="sim-kpis">
+          <div class="sim-kpi-card">
+            <div class="sim-kpi-title">TNPS del Día</div>
+            <div class="sim-kpi-val" id="simDayVal">—</div>
+            <div class="sim-kpi-diff" id="simDayDiff">0.00pp</div>
+          </div>
+          <div class="sim-kpi-card">
+            <div class="sim-kpi-title">TNPS Acumulado</div>
+            <div class="sim-kpi-val" id="simMesVal">—</div>
+            <div class="sim-kpi-diff" id="simMesDiff">0.00pp</div>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="max-height: 250px;">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:40px; text-align:center;">Activo</th>
+                <th>Asesor</th>
+                <th style="text-align:center; width:80px;">TNPS Hoy</th>
+                <th style="text-align:center; width:80px;">TNPS Mes</th>
+              </tr>
+            </thead>
+            <tbody id="simAgentsBody">
+              <!-- Dynamically populated checkbox list -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Card Matrix de Criticidad -->
+      <div class="ranking-card">
+        <div class="section-title"><span class="st-dot"></span>Matriz de Criticidad Histórica</div>
+        
+        <div class="criticidad-selector-wrap">
+          <div>
+            <label for="selectAsesorGrid" style="font-size:12px; font-weight:600; color:var(--muted2); margin-right:8px;">Asesor:</label>
+            <select id="selectAsesorGrid" onchange="actualizarCriticidadGrid()" style="background:var(--bg2); border:1px solid var(--border2); padding:6px 10px; border-radius:6px; font-family:inherit; font-size:13px; outline:none; color:var(--text);">
+              <!-- Option list of agents -->
+            </select>
+          </div>
+          <div>
+            <span id="riskLabel" class="risk-badge bajo">Riesgo Bajo</span>
+          </div>
+        </div>
+
+        <p style="font-size:12px; color:var(--muted2);">
+          Historial del mes (rojo = TNPS diario crítico &lt; 65%, verde = &ge; 65%, gris = sin encuestas/franco):
+        </p>
+
+        <div class="criticidad-grid-container">
+          <div class="criticidad-grid" id="criticidadGridBody">
+            <!-- Github style daily cells -->
+          </div>
+          <div style="font-size:11px; color:var(--muted2); text-align:right; margin-top:4px;" id="criticidadStats">
+            Días Críticos: 0 | Encuestas Acumuladas: 0
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 2: Alertas / Acciones y Logros / Rachas -->
+    <div class="bottom-grid" style="margin-top:0px;">
+      <!-- Card Planes de Acción -->
+      <div class="ranking-card">
+        <div class="section-title"><span class="st-dot" style="background:var(--red);"></span>Alertas Críticas y Planes de Acción sugeridos</div>
+        <p style="font-size:12px; color:var(--muted2); margin-bottom:14px;">
+          Asesores en estado crítico hoy (TNPS &lt; 65%, mín. 3 encuestas) con foco recomendado de coaching:
+        </p>
+        <div class="table-wrap" style="max-height: 280px; border:none; background:transparent;" id="actionPlansList">
+          <!-- Dynamically populated action plan items -->
+        </div>
+      </div>
+
+      <!-- Card Logros y Rachas -->
+      <div class="ranking-card">
+        <div class="section-title"><span class="st-dot" style="background:var(--green);"></span>Logros y Rachas de Rendimiento (Hoy)</div>
+        <p style="font-size:12px; color:var(--muted2); margin-bottom:14px;">
+          Reconocimiento y récords alcanzados por los miembros del equipo el día de hoy:
+        </p>
+        <div class="table-wrap" style="max-height: 280px; border:none; background:transparent;" id="streaksList">
+          <!-- Dynamically populated achievements -->
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -473,6 +813,7 @@ let SUPERVISORS = {};
 let currentSupervisor = null;
 let currentRankingTab = 'day'; // 'day' o 'mes'
 let trendChartInstance = null;
+let maxFechaInt = 0;
 
 // Convierte y formatea una cadena de hora "HH:MM:SS" a "HH:MM"
 function formatTimeString(str) {
@@ -619,7 +960,7 @@ async function inicializarDatos() {
     });
 
     // ── 2. Detectar la fecha más reciente en los datos ─────────────────────
-    let maxFechaInt = 0;
+    maxFechaInt = 0;
     dataAcumulada.forEach(row => {
       const p = parseFechaRow(row[COL_FECHA]);
       if (p && p.yymmdd > maxFechaInt) {
@@ -913,9 +1254,20 @@ function renderDash() {
     });
   }
 
+  // Resetear simulación e inicializar vistas avanzadas al iniciar sesión
+  SIM_INACTIVE_AGENTS = {};
+
   // ── Renderizar Ranking de Asesores ──────────────────────────────────────
   renderRankingTable();
   renderAnalysisTable();
+
+  // Inicializar componentes avanzados
+  renderSimAgentsList();
+  recalcularSimulacion();
+  renderCriticidadDropdown();
+  actualizarCriticidadGrid();
+  renderActionPlans();
+  renderStreaks();
 
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('dashScreen').style.display  = 'block';
@@ -1161,6 +1513,393 @@ function salir() {
   currentSupervisor = null;
   sortCol = 'tnps'; sortDir = -1;
   analysisSortCol = 'gap'; analysisSortDir = 1;
+  switchView('main'); // Reset a pestaña principal al salir
+}
+
+// =========================================================================
+// ⚙️ Lógica de la Nueva Pestaña "Análisis Avanzado"
+// =========================================================================
+let currentView = 'main';
+let SIM_INACTIVE_AGENTS = {};
+
+function switchView(view) {
+  currentView = view;
+  const isMain = view === 'main';
+  
+  document.getElementById('btnTabMain').classList.toggle('active', isMain);
+  document.getElementById('btnTabAdvanced').classList.toggle('active', !isMain);
+  
+  document.getElementById('viewMain').style.display = isMain ? 'block' : 'none';
+  document.getElementById('viewAdvanced').style.display = isMain ? 'none' : 'block';
+  
+  if (!isMain) {
+    // Al entrar a la vista avanzada, forzar redibujado de la criticidad
+    actualizarCriticidadGrid();
+  }
+}
+
+// ─────────────────── 1. SIMULADOR DE IMPACTO ───────────────────
+function renderSimAgentsList() {
+  const s = currentSupervisor;
+  const body = document.getElementById('simAgentsBody');
+  body.innerHTML = '';
+  
+  if (!s || !s.asesores) return;
+  
+  s.asesores.forEach(a => {
+    let tnpsHoyStr = '—', tnpsMesStr = '—';
+    if (a.dia.total > 0 && a.dia.tnps !== null) tnpsHoyStr = a.dia.tnps.toFixed(1) + '%';
+    if (a.mes.total > 0 && a.mes.tnps !== null) tnpsMesStr = a.mes.tnps.toFixed(1) + '%';
+    
+    const row = document.createElement('tr');
+    row.className = 'sim-agent-item';
+    row.innerHTML = `
+      <td style="text-align:center;">
+        <input type="checkbox" class="sim-checkbox" checked data-user="${a.usuario}" onchange="toggleSimAgent('${a.usuario}')">
+      </td>
+      <td>
+        <span class="rank-name">${a.nombre}</span>
+        <span class="rank-id">${a.usuario}</span>
+      </td>
+      <td style="text-align:center; font-family:'JetBrains Mono',monospace; font-weight:600;">${tnpsHoyStr}</td>
+      <td style="text-align:center; font-family:'JetBrains Mono',monospace; font-weight:600;">${tnpsMesStr}</td>
+    `;
+    body.appendChild(row);
+  });
+}
+
+function toggleSimAgent(usuario) {
+  if (SIM_INACTIVE_AGENTS[usuario]) {
+    delete SIM_INACTIVE_AGENTS[usuario];
+  } else {
+    SIM_INACTIVE_AGENTS[usuario] = true;
+  }
+  recalcularSimulacion();
+}
+
+function recalcularSimulacion() {
+  const s = currentSupervisor;
+  if (!s) return;
+  
+  // A. SIMULACIÓN DIARIA
+  let dayProm = 0, dayDet = 0, dayTotal = 0;
+  s.asesores.forEach(a => {
+    if (SIM_INACTIVE_AGENTS[a.usuario]) return; // Excluido
+    dayProm += a.dia.prom;
+    dayDet += a.dia.det;
+    dayTotal += a.dia.total;
+  });
+  
+  const simDayTnps = calcTNPS(dayProm, dayDet, dayTotal);
+  const realDayTnps = s.dia.tnps;
+  
+  // Render KPI Día
+  const dayValEl = document.getElementById('simDayVal');
+  const dayDiffEl = document.getElementById('simDayDiff');
+  
+  if (simDayTnps !== null) {
+    dayValEl.textContent = simDayTnps.toFixed(2) + '%';
+    dayValEl.style.color = tnpsColor(simDayTnps);
+    
+    const diff = simDayTnps - (realDayTnps || 0);
+    if (diff > 0.01) {
+      dayDiffEl.textContent = `+${diff.toFixed(2)}pp (Mejora)`;
+      dayDiffEl.className = 'sim-kpi-diff plus';
+    } else if (diff < -0.01) {
+      dayDiffEl.textContent = `${diff.toFixed(2)}pp`;
+      dayDiffEl.className = 'sim-kpi-diff minus';
+    } else {
+      dayDiffEl.textContent = 'Sin variación';
+      dayDiffEl.className = 'sim-kpi-diff none';
+    }
+  } else {
+    dayValEl.textContent = '—';
+    dayValEl.style.color = 'var(--muted)';
+    dayDiffEl.textContent = '—';
+    dayDiffEl.className = 'sim-kpi-diff none';
+  }
+  
+  // B. SIMULACIÓN MENSUAL (Promedio de los TNPS diarios simulados)
+  // 1. Obtener todas las fechas del mes
+  let fechas = new Set();
+  s.asesores.forEach(a => {
+    Object.keys(a.dailyMetrics).forEach(f => fechas.add(Number(f)));
+  });
+  
+  const fechasSorted = Array.from(fechas).sort((x, y) => x - y);
+  let dailySimValues = [];
+  
+  fechasSorted.forEach(fechaInt => {
+    let fdProm = 0, fdDet = 0, fdTotal = 0;
+    
+    s.asesores.forEach(a => {
+      if (SIM_INACTIVE_AGENTS[a.usuario]) return; // Excluido
+      const d = a.dailyMetrics[fechaInt];
+      if (d) {
+        fdProm += d.prom;
+        fdDet += d.det;
+        fdTotal += d.total;
+      }
+    });
+    
+    const tSim = calcTNPS(fdProm, fdDet, fdTotal);
+    if (tSim !== null) {
+      dailySimValues.push(tSim);
+    }
+  });
+  
+  const simMesTnps = dailySimValues.length > 0 ? (dailySimValues.reduce((sum, v) => sum + v, 0) / dailySimValues.length) : null;
+  const realMesTnps = s.mes.tnps;
+  
+  // Render KPI Mes
+  const mesValEl = document.getElementById('simMesVal');
+  const mesDiffEl = document.getElementById('simMesDiff');
+  
+  if (simMesTnps !== null) {
+    mesValEl.textContent = simMesTnps.toFixed(2) + '%';
+    mesValEl.style.color = tnpsColor(simMesTnps);
+    
+    const diff = simMesTnps - (realMesTnps || 0);
+    if (diff > 0.01) {
+      mesDiffEl.textContent = `+${diff.toFixed(2)}pp (Mejora)`;
+      mesDiffEl.className = 'sim-kpi-diff plus';
+    } else if (diff < -0.01) {
+      mesDiffEl.textContent = `${diff.toFixed(2)}pp`;
+      mesDiffEl.className = 'sim-kpi-diff minus';
+    } else {
+      mesDiffEl.textContent = 'Sin variación';
+      mesDiffEl.className = 'sim-kpi-diff none';
+    }
+  } else {
+    mesValEl.textContent = '—';
+    mesValEl.style.color = 'var(--muted)';
+    mesDiffEl.textContent = '—';
+    mesDiffEl.className = 'sim-kpi-diff none';
+  }
+}
+
+// ─────────────────── 2. MATRIZ DE CRITICIDAD ───────────────────
+function renderCriticidadDropdown() {
+  const s = currentSupervisor;
+  const select = document.getElementById('selectAsesorGrid');
+  select.innerHTML = '';
+  
+  if (!s || !s.asesores || s.asesores.length === 0) return;
+  
+  s.asesores.forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a.usuario;
+    opt.textContent = `${a.nombre} (${a.usuario})`;
+    select.appendChild(opt);
+  });
+}
+
+function actualizarCriticidadGrid() {
+  const select = document.getElementById('selectAsesorGrid');
+  const codigo = select.value;
+  if (!codigo) return;
+  
+  const a = AGENTS[codigo];
+  const grid = document.getElementById('criticidadGridBody');
+  const stats = document.getElementById('criticidadStats');
+  const riskLabel = document.getElementById('riskLabel');
+  grid.innerHTML = '';
+  
+  if (!a) return;
+  
+  // Obtener fechas ordenadas del mes
+  const fechasSorted = Object.keys(a.dailyMetrics).map(Number).sort((x, y) => x - y);
+  
+  let criticalDays = 0;
+  let totalEnc = a.mes.total;
+  
+  fechasSorted.forEach(fechaInt => {
+    const d = a.dailyMetrics[fechaInt];
+    const tnps = calcTNPS(d.prom, d.det, d.total);
+    
+    let cellClass = 'grey';
+    let statusText = 'N/A';
+    
+    if (d.total > 0 && tnps !== null) {
+      if (tnps < 65) {
+        cellClass = 'red';
+        criticalDays++;
+        statusText = `${tnps.toFixed(0)}%`;
+      } else {
+        cellClass = 'green';
+        statusText = `${tnps.toFixed(0)}%`;
+      }
+    }
+    
+    const cellWrap = document.createElement('div');
+    cellWrap.className = 'grid-cell-wrap';
+    
+    const shortDate = yyyymmddToShortDate(fechaInt);
+    cellWrap.innerHTML = `
+      <div class="grid-cell ${cellClass}" title="Fecha: ${shortDate} | TNPS: ${statusText} | Encuestas: ${d.total}">${statusText === 'N/A' ? '—' : statusText}</div>
+      <div class="grid-cell-date">${shortDate}</div>
+    `;
+    grid.appendChild(cellWrap);
+  });
+  
+  // Actualizar estadísticas del grid
+  stats.textContent = `Días Críticos: ${criticalDays}/${fechasSorted.length} | Encuestas del Mes: ${totalEnc}`;
+  
+  // Categoría de Riesgo (según matriz del Excel)
+  riskLabel.className = 'risk-badge';
+  if (criticalDays >= 23) {
+    riskLabel.textContent = 'Riesgo Máximo';
+    riskLabel.classList.add('max');
+  } else if (criticalDays >= 10) {
+    riskLabel.textContent = 'Riesgo Alto';
+    riskLabel.classList.add('alta');
+  } else if (criticalDays >= 2) {
+    riskLabel.textContent = 'Riesgo Medio';
+    riskLabel.classList.add('media');
+  } else {
+    riskLabel.textContent = 'Riesgo Bajo';
+    riskLabel.classList.add('bajo');
+  }
+}
+
+// ─────────────────── 3. PLANES DE ACCIÓN Y ALERTAS ───────────────────
+function renderActionPlans() {
+  const s = currentSupervisor;
+  const container = document.getElementById('actionPlansList');
+  container.innerHTML = '';
+  
+  if (!s || !s.asesores) return;
+  
+  // Filtrar críticos hoy: TNPS < 65% y mínimo 3 encuestas hoy
+  const criticos = s.asesores.filter(a => a.dia.total >= 3 && a.dia.tnps !== null && a.dia.tnps < 65);
+  
+  if (criticos.length === 0) {
+    container.innerHTML = `
+      <div style="text-align:center; padding:30px; color:var(--green); font-weight:600; font-size:13px;">
+        ✅ Todos los asesores activos están sobre el objetivo crítico (65%) hoy. ¡Excelente desempeño de equipo!
+      </div>
+    `;
+    return;
+  }
+  
+  criticos.forEach(a => {
+    let focusClass = 'escucha';
+    let focusName = 'Escucha / Conecta';
+    let recoText = '';
+    
+    // Decidir el foco sugerido de coaching
+    if (a.dia.cortes > 0) {
+      focusClass = 'cortes';
+      focusName = 'Cortes / Cierre';
+      recoText = `Se detectó(aron) <strong>${a.dia.cortes} llamada(s) cortada(s) por el cliente</strong> hoy. Escuchar grabaciones del usuario para identificar fricciones operativas y retroalimentar técnicas de retención y amabilidad en cierre.`;
+    } else {
+      const detPercent = ((a.dia.det / a.dia.total) * 100).toFixed(0);
+      recoText = `El agente registra hoy un TNPS crítico de <strong>${a.dia.tnps.toFixed(1)}%</strong> con <strong>${detPercent}% de Detractores</strong>. Programar sesión de escucha activa de 2 llamadas y reforzar modulación de voz, empatía y confirmación de resolución.`;
+    }
+    
+    const card = document.createElement('div');
+    card.className = 'action-card-item';
+    card.innerHTML = `
+      <div class="action-header">
+        <span class="action-name">${a.nombre}</span>
+        <span class="action-focus ${focusClass}">${focusName}</span>
+      </div>
+      <div class="action-text">${recoText}</div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// ─────────────────── 4. LOGROS Y RACHAS ───────────────────
+function getAgentStreak(a, target) {
+  const dates = Object.keys(a.dailyMetrics).map(Number).sort((x, y) => x - y);
+  let streak = 0;
+  for (let i = dates.length - 1; i >= 0; i--) {
+    const d = a.dailyMetrics[dates[i]];
+    const tnps = calcTNPS(d.prom, d.det, d.total);
+    if (tnps !== null && tnps >= target) {
+      streak++;
+    } else if (d.total > 0) {
+      break;
+    }
+  }
+  return streak;
+}
+
+function isPersonalRecord(a) {
+  if (!a.dia || a.dia.total < 3 || a.dia.tnps === null) return false;
+  const dates = Object.keys(a.dailyMetrics).map(Number).sort((x, y) => x - y);
+  if (dates.length < 3) return false;
+  
+  let maxPrevious = -999;
+  let hasHistory = false;
+  
+  dates.forEach(dInt => {
+    if (dInt === maxFechaInt) return;
+    const d = a.dailyMetrics[dInt];
+    const tnps = calcTNPS(d.prom, d.det, d.total);
+    if (tnps !== null) {
+      hasHistory = true;
+      if (tnps > maxPrevious) maxPrevious = tnps;
+    }
+  });
+  
+  return hasHistory && a.dia.tnps >= maxPrevious && a.dia.tnps > 50;
+}
+
+function renderStreaks() {
+  const s = currentSupervisor;
+  const container = document.getElementById('streaksList');
+  container.innerHTML = '';
+  
+  if (!s || !s.asesores) return;
+  
+  let achievements = [];
+  
+  s.asesores.forEach(a => {
+    // A. Detectar Récord Personal
+    if (isPersonalRecord(a)) {
+      achievements.push({
+        type: 'record',
+        badge: '🏆',
+        title: `¡Récord Personal de TNPS!`,
+        desc: `<strong>${a.nombre}</strong> alcanzó hoy un TNPS de <strong>${a.dia.tnps.toFixed(1)}%</strong>, superando su histórico máximo de este mes.`
+      });
+    }
+    
+    // B. Detectar Racha de 3+ días en meta (82%)
+    const streak = getAgentStreak(a, META_TNPS);
+    if (streak >= 3) {
+      achievements.push({
+        type: 'streak',
+        badge: '🔥',
+        title: `Racha de Consistencia: ${streak} Días`,
+        desc: `<strong>${a.nombre}</strong> lleva <strong>${streak} días consecutivos</strong> cumpliendo el objetivo del 82% TNPS.`
+      });
+    }
+  });
+  
+  if (achievements.length === 0) {
+    container.innerHTML = `
+      <div style="text-align:center; padding:30px; color:var(--muted2); font-size:12px;">
+        No hay rachas activas de 3+ días en meta o récords registrados hoy. ¡Fomenta la consistencia diaria!
+      </div>
+    `;
+    return;
+  }
+  
+  achievements.forEach(ach => {
+    const row = document.createElement('div');
+    row.className = 'ach-row';
+    row.innerHTML = `
+      <div class="ach-badge">${ach.badge}</div>
+      <div class="ach-info">
+        <span class="ach-title" style="color: ${ach.type === 'streak' ? 'var(--yellow)' : 'var(--accent)'}">${ach.title}</span>
+        <span class="ach-desc">${ach.desc}</span>
+      </div>
+    `;
+    container.appendChild(row);
+  });
 }
 
 // Inicializar eventos de ordenamiento
