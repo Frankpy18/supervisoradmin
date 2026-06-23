@@ -393,18 +393,16 @@ tr:hover td{background:rgba(10,99,46,0.04);}
 .sim-kpi-diff.plus { color: var(--green); }
 .sim-kpi-diff.minus { color: var(--red); }
 .sim-kpi-diff.none { color: var(--muted); }
-.sim-agent-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
+.sim-agent-item td {
+  padding: 10px 12px;
+  vertical-align: middle;
   border-bottom: 1px solid var(--border);
   transition: background 0.15s ease;
 }
-.sim-agent-item:hover {
+.sim-agent-item:hover td {
   background: rgba(10,99,46,0.03);
 }
-.sim-agent-item:last-child {
+.sim-agent-item:last-child td {
   border-bottom: none;
 }
 .sim-checkbox {
@@ -710,10 +708,10 @@ tr:hover td{background:rgba(10,99,46,0.04);}
           <table>
             <thead>
               <tr>
-                <th style="width:40px; text-align:center;">Activo</th>
-                <th>Asesor</th>
-                <th style="text-align:center; width:80px;">TNPS Hoy</th>
-                <th style="text-align:center; width:80px;">TNPS Mes</th>
+                <th style="width:70px; text-align:center;">Activo</th>
+                <th style="text-align:left;">Asesor</th>
+                <th style="text-align:center; width:100px;">TNPS Hoy</th>
+                <th style="text-align:center; width:100px;">TNPS Mes</th>
               </tr>
             </thead>
             <tbody id="simAgentsBody">
@@ -749,6 +747,31 @@ tr:hover td{background:rgba(10,99,46,0.04);}
           </div>
           <div style="font-size:11px; color:var(--muted2); text-align:right; margin-top:4px;" id="criticidadStats">
             Días Críticos: 0 | Encuestas Acumuladas: 0
+          </div>
+        </div>
+
+        <!-- Resumen del Asesor Seleccionado para evitar espacio en blanco -->
+        <div id="criticidadAgentSummary" style="margin-top: 18px; border-top: 1px solid var(--border); padding-top: 18px;">
+          <div style="font-family:'Rajdhani',sans-serif; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted2); margin-bottom:12px;">Resumen Acumulado del Asesor (Mes)</div>
+          <div class="sim-kpis" style="margin-bottom:0px; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;">
+            <div class="sim-kpi-card" style="padding:10px 8px;">
+              <div class="sim-kpi-title" style="font-size:9px;">TNPS Mensual</div>
+              <div class="sim-kpi-val" id="gridAgentTnps" style="font-size:20px;">—</div>
+            </div>
+            <div class="sim-kpi-card" style="padding:10px 8px;">
+              <div class="sim-kpi-title" style="font-size:9px;">Encuestas</div>
+              <div class="sim-kpi-val" id="gridAgentEnc" style="font-size:20px;">—</div>
+            </div>
+            <div class="sim-kpi-card" style="padding:10px 8px;">
+              <div class="sim-kpi-title" style="font-size:9px;">Llamadas Atend.</div>
+              <div class="sim-kpi-val" id="gridAgentAtend" style="font-size:20px;">—</div>
+            </div>
+          </div>
+          <div class="tc-pills" style="margin-top:12px; display:flex; justify-content:center; gap:8px;">
+            <span class="pill p">⭐ <span id="gridAgentP">—</span> prom.</span>
+            <span class="pill pas">→ <span id="gridAgentPas">—</span> pas.</span>
+            <span class="pill d">⚠ <span id="gridAgentD">—</span> det.</span>
+            <span class="pill atend" style="background:var(--red2); color:var(--red); border:1px solid rgba(161,77,52,0.15);">📴 <span id="gridAgentCortes">—</span> cortes</span>
           </div>
         </div>
       </div>
@@ -1745,6 +1768,16 @@ function actualizarCriticidadGrid() {
   // Actualizar estadísticas del grid
   stats.textContent = `Días Críticos: ${criticalDays}/${fechasSorted.length} | Encuestas del Mes: ${totalEnc}`;
   
+  // Actualizar Resumen Acumulado del Asesor en la parte inferior para llenar el espacio
+  document.getElementById('gridAgentTnps').textContent = a.mes.tnps !== null ? a.mes.tnps.toFixed(2) + '%' : '—';
+  document.getElementById('gridAgentTnps').style.color = tnpsColor(a.mes.tnps);
+  document.getElementById('gridAgentEnc').textContent = a.mes.total;
+  document.getElementById('gridAgentAtend').textContent = a.mes.atendidas;
+  document.getElementById('gridAgentP').textContent = a.mes.prom;
+  document.getElementById('gridAgentPas').textContent = a.mes.pas;
+  document.getElementById('gridAgentD').textContent = a.mes.det;
+  document.getElementById('gridAgentCortes').textContent = a.mes.cortes || 0;
+
   // Categoría de Riesgo (según matriz del Excel)
   riskLabel.className = 'risk-badge';
   if (criticalDays >= 23) {
